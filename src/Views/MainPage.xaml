@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+	x:Class="StedySoft.CarouselView.Views.MainPage"
+	xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:colors="clr-namespace:StedySoft.Maui.Framework"
+	xmlns:components="clr-namespace:StedySoft.CarouselView.Components"
+	xmlns:fonts="clr-namespace:StedySoft.Maui.Framework"
+	xmlns:framework="clr-namespace:StedySoft.Maui.Framework"
+	xmlns:views="clr-namespace:StedySoft.CarouselView.Views.ItemViews"
+	x:Name="_parent"
+	Title="WinUI CarouselView Issues">
+
+	<ContentPage.Content>
+
+		<ScrollView>
+
+			<VerticalStackLayout>
+
+				<Border
+					Style="{DynamicResource FrameStyle}"
+					Margin="10,10,10,5">
+					<VerticalStackLayout
+						Style="{DynamicResource InnerStackLayout}">
+						<Label
+							Text="Standard CarouselView:"
+							FontSize="{StaticResource MediumFontSize}"
+							FontFamily="{fonts:Family ThinBold}"/>
+						<Border>
+							<components:ItemViewer
+								HeightRequest="300"
+								IndicatorColor="{colors:Color AccentColor}">
+								<components:ItemViewerItem
+									Text="Item #1">
+									<components:ItemViewerItem.Content>
+										<framework:LazyView
+											x:TypeArguments="views:ItemView1"/>
+									</components:ItemViewerItem.Content>
+								</components:ItemViewerItem>
+								<components:ItemViewerItem
+									Text="Item #2">
+									<components:ItemViewerItem.Content>
+										<framework:LazyView
+											x:TypeArguments="views:ItemView2"/>
+									</components:ItemViewerItem.Content>
+								</components:ItemViewerItem>
+								<components:ItemViewerItem
+									Text="Item #3">
+									<components:ItemViewerItem.Content>
+										<framework:LazyView
+											x:TypeArguments="views:ItemView3"/>
+									</components:ItemViewerItem.Content>
+								</components:ItemViewerItem>
+								<components:ItemViewerItem
+									Text="Item #4">
+									<components:ItemViewerItem.Content>
+										<framework:LazyView
+											x:TypeArguments="views:ItemView4"/>
+									</components:ItemViewerItem.Content>
+								</components:ItemViewerItem>
+							</components:ItemViewer>
+						</Border>
+					</VerticalStackLayout>
+				</Border>
+
+				<Border
+					Style="{DynamicResource FrameStyle}"
+					Margin="10,5,10,10">
+					<VerticalStackLayout
+						Style="{DynamicResource InnerStackLayout}">
+						<Label
+							Text="StedySoft MauiCarouselView:"
+							FontSize="{StaticResource MediumFontSize}"
+							FontFamily="{fonts:Family ThinBold}"/>
+						<Border>
+							<components:MauiItemViewer
+								HeightRequest="300"
+								IndicatorColor="{colors:Color AccentColor}">
+								<components:ItemViewerItem
+									Text="Item #1">
+									<components:ItemViewerItem.Content>
+										<framework:LazyView
+											x:TypeArguments="views:ItemView1"/>
+									</components:ItemViewerItem.Content>
+								</components:ItemViewerItem>
+								<components:ItemViewerItem
+									Text="Item #2">
+									<components:ItemViewerItem.Content>
+										<framework:LazyView
+											x:TypeArguments="views:ItemView2"/>
+									</components:ItemViewerItem.Content>
+								</components:ItemViewerItem>
+								<components:ItemViewerItem
+									Text="Item #3">
+									<components:ItemViewerItem.Content>
+										<framework:LazyView
+											x:TypeArguments="views:ItemView3"/>
+									</components:ItemViewerItem.Content>
+								</components:ItemViewerItem>
+								<components:ItemViewerItem
+									Text="Item #4">
+									<components:ItemViewerItem.Content>
+										<framework:LazyView
+											x:TypeArguments="views:ItemView4"/>
+									</components:ItemViewerItem.Content>
+								</components:ItemViewerItem>
+							</components:MauiItemViewer>
+						</Border>
+					</VerticalStackLayout>
+				</Border>
+
+			</VerticalStackLayout>
+
+		</ScrollView>
+
+	</ContentPage.Content>
+</ContentPage>

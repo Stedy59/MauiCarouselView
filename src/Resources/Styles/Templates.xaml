@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary
+	x:Class="StedySoft.CarouselView.Templates"
+	xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:colors="clr-namespace:StedySoft.Maui.Framework"
+	xmlns:controls="clr-namespace:StedySoft.Maui.Framework.Controls">
+
+	<!--#region Templates-->
+
+	<!--#region components:ItemViewer-->
+	<ControlTemplate
+		x:Key="ItemViewerTemplate">
+		<Grid
+			x:Name="mainContainer"
+			BackgroundColor="Transparent"
+			RowDefinitions="Auto,*">
+			<Grid
+				x:Name="itemContentContainer"
+				Grid.Row="0">
+				<Grid
+					x:Name="itemContent"
+					HeightRequest="{TemplateBinding ItemContainerHeight}"
+					VerticalOptions="Start"
+					BackgroundColor="{colors:Color TabColor}"/>
+				<BoxView
+					x:Name="itemIndicator"
+					WidthRequest="{TemplateBinding IndicatorWidth}"
+					HeightRequest="{TemplateBinding IndicatorHeight}"
+					Margin="{OnPlatform WinUI='0,0,0,0', Android='0,0,0,-1'}"
+					HorizontalOptions="Start"
+					VerticalOptions="End"
+					BackgroundColor="{TemplateBinding IndicatorColor}"
+					TranslationX="{TemplateBinding IndicatorTranslationX}"/>
+			</Grid>
+			<CarouselView
+				x:Name="contentContainer"
+				Grid.Row="1"
+				HorizontalOptions="Fill"
+				VerticalOptions="Fill"
+				HorizontalScrollBarVisibility="Never"
+				IsBounceEnabled="True"
+				IsScrollAnimated="True"
+				IsSwipeEnabled="True"
+				ItemsUpdatingScrollMode="KeepItemsInView"
+				Loop="False"
+				PeekAreaInsets="0"
+				VerticalScrollBarVisibility="Never">
+				<CarouselView.ItemsLayout>
+					<LinearItemsLayout
+						ItemSpacing="0"
+						Orientation="Horizontal"
+						SnapPointsAlignment="Center"
+						SnapPointsType="{OnPlatform WinUI='Mandatory', Android='MandatorySingle'}"/>
+				</CarouselView.ItemsLayout>
+			</CarouselView>
+		</Grid>
+	</ControlTemplate>
+	<!--#endregion-->
+	
+	<!--#region components:MauiItemViewer-->
+	<ControlTemplate
+		x:Key="MauiItemViewerTemplate">
+		<Grid
+			x:Name="mainContainer"
+			BackgroundColor="Transparent"
+			RowDefinitions="Auto,*">
+			<Grid
+				x:Name="itemContentContainer"
+				Grid.Row="0">
+				<Grid
+					x:Name="itemContent"
+					HeightRequest="{TemplateBinding ItemContainerHeight}"
+					VerticalOptions="Start"
+					BackgroundColor="{colors:Color TabColor}"/>
+				<BoxView
+					x:Name="itemIndicator"
+					WidthRequest="{TemplateBinding IndicatorWidth}"
+					HeightRequest="{TemplateBinding IndicatorHeight}"
+					Margin="{OnPlatform WinUI='0,0,0,0', Android='0,0,0,-1'}"
+					HorizontalOptions="Start"
+					VerticalOptions="End"
+					BackgroundColor="{TemplateBinding IndicatorColor}"
+					TranslationX="{TemplateBinding IndicatorTranslationX}"/>
+			</Grid>
+			<controls:MauiCarouselView
+				x:Name="contentContainer"
+				Grid.Row="1"
+				HorizontalOptions="Fill"
+				VerticalOptions="Fill"
+				HorizontalScrollBarVisibility="Never"
+				IsBounceEnabled="True"
+				IsScrollAnimated="True"
+				IsSwipeEnabled="True"
+				ItemsUpdatingScrollMode="KeepItemsInView"
+				Loop="False"
+				PeekAreaInsets="0"
+				VerticalScrollBarVisibility="Never">
+				<controls:MauiCarouselView.ItemsLayout>
+					<LinearItemsLayout
+						ItemSpacing="0"
+						Orientation="Horizontal"
+						SnapPointsAlignment="Center"
+						SnapPointsType="{OnPlatform WinUI='Mandatory', Android='MandatorySingle'}"/>
+				</controls:MauiCarouselView.ItemsLayout>
+			</controls:MauiCarouselView>
+		</Grid>
+	</ControlTemplate>
+	<!--#endregion-->
+
+	<!--#endregion-->
+
+</ResourceDictionary>
